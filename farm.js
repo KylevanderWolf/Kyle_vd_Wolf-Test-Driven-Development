@@ -6,8 +6,12 @@ let getYieldForPlant = (plantName) => {
 }
 
 //Yield for Crop
-let getYieldForCrop = () => {
-
+let getYieldForCrop = (input) => {
+    let plantName = input.crop
+    let plantYield = getYieldForPlant(plantName)
+    let numCrops = input.numCrops
+    let yieldForCrop = plantYield * numCrops
+    return yieldForCrop
 }
 
 //Yield Total
