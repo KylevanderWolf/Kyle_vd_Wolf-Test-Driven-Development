@@ -12,12 +12,12 @@ let getYieldForCrop = (input) => {
     return yieldForCrop
 }
 
+
 //Yield Total
 let getTotalYield = (crops) => {
     let totalYieldArray = []
     crops.crops.map(e => {
-        let yieldForCrop = getYieldForCrop(e)
-        totalYieldArray.push(yieldForCrop)
+        totalYieldArray.push(getYieldForCrop(e))
     })
     return totalYieldArray.reduce((a, b) => a + b)
 }
