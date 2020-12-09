@@ -34,11 +34,18 @@ let getRevenueForCrop = (input) => {
     return revenue
 }
 
+//Question 3: Calculate the profit for Crop
+let getProfitForCrop = (input) => {
+    let profitForCrop = getRevenueForCrop(input) - getCostsForCrop(input)
+    return profitForCrop
+}
+
 
 module.exports = {
     getYieldForPlant,
     getYieldForCrop,
     getTotalYield,
     getCostsForCrop,
-    getRevenueForCrop
+    getRevenueForCrop,
+    getProfitForCrop
 }

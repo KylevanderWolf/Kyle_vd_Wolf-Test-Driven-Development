@@ -96,3 +96,20 @@ describe("getRevenueForCrop", () => {
         expect(getRevenueForCrop(input)).toBe(60);
     });
 });
+
+//Profit for Crop
+describe("getProfitForCrop", () => {
+    test("Calculate profit for crop", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+            cost: 1,
+            salePrice: 2
+        };
+        expect(getProfitForCrop(input)).toBe(50);
+    });
+});
