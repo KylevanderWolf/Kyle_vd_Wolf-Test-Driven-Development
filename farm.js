@@ -23,10 +23,15 @@ let getTotalYield = (crops) => {
 }
 
 
+//Cost for Crop
+let getCostsForCrop = (input) => {
+    return input.numCrops * input.cost
+}
 
 
 module.exports = {
     getYieldForPlant,
     getYieldForCrop,
     getTotalYield,
+    getCostsForCrop
 }

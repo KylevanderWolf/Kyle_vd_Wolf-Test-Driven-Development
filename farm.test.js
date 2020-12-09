@@ -1,6 +1,9 @@
 //YIELD
 const { getYieldForPlant, getYieldForCrop, getTotalYield } = require("./farm.js");
 
+//COSTS
+const { getCostsForCrop, getRevenueForCrop, getProfitForCrop, getTotalProfit } = require("./farm.js");
+
 
 //yield for plant
 describe("getYieldForPlant", () => {
@@ -55,5 +58,23 @@ describe("getTotalYield", () => {
         };
         const crops = [{ crop: corn, numCrops: 0 }];
         expect(getTotalYield({ crops })).toBe(0);
+    });
+});
+
+
+
+//Cost for Crop
+describe("getCostsForCrop", () => {
+    test("Calculate costs for crop", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+            cost: 1
+        };
+        expect(getCostsForCrop(input)).toBe(10);
     });
 });
