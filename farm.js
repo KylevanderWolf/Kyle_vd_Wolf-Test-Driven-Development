@@ -40,6 +40,16 @@ let getProfitForCrop = (input) => {
     return profitForCrop
 }
 
+//Question 4: Calculate the total profit for multiple Crops
+let getTotalProfit = (crops) => {
+    let cropsProfitArray = []
+    crops.crops.map(e => {
+        let profitForCrop = getRevenueForCrop(e) - getCostsForCrop(e)
+        cropsProfitArray.push(profitForCrop)
+    })
+    return cropsProfitArray.reduce((a, b) => a + b)
+}
+
 
 module.exports = {
     getYieldForPlant,
@@ -47,5 +57,6 @@ module.exports = {
     getTotalYield,
     getCostsForCrop,
     getRevenueForCrop,
-    getProfitForCrop
+    getProfitForCrop,
+    getTotalProfit
 }
