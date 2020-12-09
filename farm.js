@@ -30,9 +30,7 @@ let getCostsForCrop = (input) => {
 
 //Question 2: Calculate the revenue for Crop
 let getRevenueForCrop = (input) => {
-    let yieldForCrop = getYieldForCrop(input)
-    let salePrice = input.salePrice
-    let revenue = yieldForCrop * salePrice
+    let revenue = getYieldForCrop(input) * input.salePrice
     return revenue
 }
 
