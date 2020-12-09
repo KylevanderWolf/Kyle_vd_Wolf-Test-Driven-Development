@@ -64,6 +64,7 @@ describe("getTotalYield", () => {
 
 
 //Cost for Crop
+//Question 1
 describe("getCostsForCrop", () => {
     test("Calculate costs for crop", () => {
         const corn = {
@@ -81,6 +82,7 @@ describe("getCostsForCrop", () => {
 
 
 //Revenue for Crop
+//Question 2
 describe("getRevenueForCrop", () => {
     test("Calculate revenue for crop", () => {
         const corn = {
@@ -98,6 +100,7 @@ describe("getRevenueForCrop", () => {
 });
 
 //Profit for Crop
+//Question 3
 describe("getProfitForCrop", () => {
     test("Calculate profit for crop", () => {
         const corn = {
@@ -116,6 +119,7 @@ describe("getProfitForCrop", () => {
 
 
 //Total profit for multiple Crops
+//Question 4
 describe("getTotalProfit", () => {
     test("Calculate total profit for multiple crops", () => {
         const corn = {

@@ -1,11 +1,13 @@
 
 
 //Yield for Plant
+//Function 1
 let getYieldForPlant = (plantName) => {
     return plantName.yield
 }
 
 //Yield for Crop
+//Function 2
 let getYieldForCrop = (input) => {
     let plantYield = getYieldForPlant(input.crop)
     let yieldForCrop = plantYield * input.numCrops
@@ -14,6 +16,7 @@ let getYieldForCrop = (input) => {
 
 
 //Yield Total
+//Function 3
 let getTotalYield = (crops) => {
     let totalYieldArray = []
     crops.crops.map(e => totalYieldArray.push(getYieldForCrop(e)))
