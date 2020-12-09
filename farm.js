@@ -1,8 +1,8 @@
 
 
 //Yield for Plant
-let getYieldForPlant = () => {
-
+let getYieldForPlant = (plantName) => {
+    return plantName.yield
 }
 
 //Yield for Crop
