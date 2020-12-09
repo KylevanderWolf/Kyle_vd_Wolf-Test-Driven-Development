@@ -22,10 +22,18 @@ let getTotalYield = (crops) => {
     return totalYieldArray.reduce((a, b) => a + b)
 }
 
-
+//Question 1: Calculate the cost for a Crop
 //Cost for Crop
 let getCostsForCrop = (input) => {
     return input.numCrops * input.cost
+}
+
+//Question 2: Calculate the revenue for Crop
+let getRevenueForCrop = (input) => {
+    let yieldForCrop = getYieldForCrop(input)
+    let salePrice = input.salePrice
+    let revenue = yieldForCrop * salePrice
+    return revenue
 }
 
 
@@ -33,5 +41,6 @@ module.exports = {
     getYieldForPlant,
     getYieldForCrop,
     getTotalYield,
-    getCostsForCrop
+    getCostsForCrop,
+    getRevenueForCrop
 }
