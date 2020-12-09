@@ -16,9 +16,7 @@ let getYieldForCrop = (input) => {
 //Yield Total
 let getTotalYield = (crops) => {
     let totalYieldArray = []
-    crops.crops.map(e => {
-        totalYieldArray.push(getYieldForCrop(e))
-    })
+    crops.crops.map(e => totalYieldArray.push(getYieldForCrop(e)))
     return totalYieldArray.reduce((a, b) => a + b)
 }
 
@@ -43,10 +41,7 @@ let getProfitForCrop = (input) => {
 //Question 4: Calculate the total profit for multiple Crops
 let getTotalProfit = (crops) => {
     let cropsProfitArray = []
-    crops.crops.map(e => {
-        let profitForCrop = getRevenueForCrop(e) - getCostsForCrop(e)
-        cropsProfitArray.push(profitForCrop)
-    })
+    crops.crops.map(e => cropsProfitArray.push(getRevenueForCrop(e) - getCostsForCrop(e)))
     return cropsProfitArray.reduce((a, b) => a + b)
 }
 
