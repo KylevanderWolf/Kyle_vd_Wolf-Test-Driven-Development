@@ -13,8 +13,13 @@ let getYieldForCrop = (input) => {
 }
 
 //Yield Total
-let getTotalYield = () => {
-
+let getTotalYield = (crops) => {
+    let totalYieldArray = []
+    crops.crops.map(e => {
+        let yieldForCrop = getYieldForCrop(e)
+        totalYieldArray.push(yieldForCrop)
+    })
+    return totalYieldArray.reduce((a, b) => a + b)
 }
 
 
