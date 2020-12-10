@@ -1,10 +1,11 @@
 
-//Yield for Plant with environment factor
-//Question 6
-const getYieldForPlant = ({ yield: totalYield, factors: { sun } }, envFactors) => {
-    if (envFactors.sun in sun) {
+//Yield for Plant with environment factors
+//Question 6 && Question 7
+const getYieldForPlant = ({ yield: totalYield, factors: { sun, wind } }, envFactors) => {
+    if (envFactors.sun in sun && envFactors.wind in wind) {
         let sunFactor = (sun[envFactors.sun] / 100) + 1
-        let yieldForPlant = totalYield * sunFactor
+        let windFactor = (wind[envFactors.wind] / 100) + 1
+        let yieldForPlant = totalYield * (sunFactor * windFactor)
         return yieldForPlant
     }
     else {

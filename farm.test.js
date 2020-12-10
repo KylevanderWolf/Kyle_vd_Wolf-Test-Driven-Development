@@ -11,7 +11,7 @@ const { getRevenueForCrop } = require("./farm.js");
 const { getProfitForCrop, getTotalProfit } = require("./farm.js");
 
 
-//Yield for plant with environment factor
+//Yield for plant with environment factors
 describe("getYieldForPlant", () => {
     const corn = {
         name: "corn",
@@ -22,15 +22,21 @@ describe("getYieldForPlant", () => {
                 medium: 0,
                 high: 50,
             },
+            wind: {
+                low: -20,
+                medium: 0,
+                high: -40,
+            },
         },
     };
 
     const environmentFactors = {
         sun: "low",
+        wind: "high"
     };
 
-    test("Get yield for plant with environment factor", () => {
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(15);
+    test("Get yield for plant with environment factors", () => {
+        expect(getYieldForPlant(corn, environmentFactors)).toBe(9);
     });
 });
 
