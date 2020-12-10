@@ -1,12 +1,26 @@
 
+
 //Yield for Plant with environment factors
-//Question 6 && Question 7
+//Ignore not relevant environment factors
+//Question 6 && Question 7 && Question 8
 const getYieldForPlant = ({ yield: totalYield, factors: { sun, wind } }, envFactors) => {
+    let sunFactor = (sun[envFactors.sun] / 100) + 1
+    let windFactor = (wind[envFactors.wind] / 100) + 1
     if (envFactors.sun in sun && envFactors.wind in wind) {
-        let sunFactor = (sun[envFactors.sun] / 100) + 1
-        let windFactor = (wind[envFactors.wind] / 100) + 1
-        let yieldForPlant = totalYield * (sunFactor * windFactor)
-        return yieldForPlant
+        let yieldForPlant = (totalYield * (sunFactor * windFactor)).toFixed(2)
+        let yieldRounded = parseFloat(yieldForPlant)
+        return yieldRounded
+    }
+    else if (!(envFactors.sun in sun) && envFactors.wind in wind) {
+        let yieldForPlant = (totalYield * windFactor).toFixed(2)
+        let yieldRounded = parseFloat(yieldForPlant)
+        return yieldRounded
+    }
+    else if (envFactors.sun in sun && !(envFactors.wind in wind)) {
+        let yieldForPlant = (totalYield * sunFactor).toFixed(2)
+        let yieldRounded = parseFloat(yieldForPlant)
+
+        return yieldRounded
     }
     else {
         return totalYield
