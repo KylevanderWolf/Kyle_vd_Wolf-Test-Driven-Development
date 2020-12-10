@@ -1,14 +1,14 @@
 
 //Yield for Plant with environment factor
 //Question 6
-const getYieldForPlant = ({ yield: Yield, factors: { sun } }, envFactors) => {
+const getYieldForPlant = ({ yield: totalYield, factors: { sun } }, envFactors) => {
     if (envFactors.sun in sun) {
         let sunFactor = (sun[envFactors.sun] / 100) + 1
-        let yieldForPlant = Yield * sunFactor
+        let yieldForPlant = totalYield * sunFactor
         return yieldForPlant
     }
     else {
-        return Yield
+        return totalYield
     }
 }
 
