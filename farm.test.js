@@ -2,18 +2,35 @@
 const { getYieldForPlant, getYieldForCrop, getTotalYield } = require("./farm.js");
 
 //COSTS
-const { getCostsForCrop, getRevenueForCrop, getProfitForCrop, getTotalProfit } = require("./farm.js");
+const { getCostsForCrop } = require("./farm.js");
+
+//RENENUE
+const { getRevenueForCrop } = require("./farm.js");
+
+//PROFIT
+const { getProfitForCrop, getTotalProfit } = require("./farm.js");
 
 
-//yield for plant
+//Yield for plant with environment factor
 describe("getYieldForPlant", () => {
     const corn = {
         name: "corn",
         yield: 30,
+        factors: {
+            sun: {
+                low: -50,
+                medium: 0,
+                high: 50,
+            },
+        },
     };
 
-    test("Get yield for plant with no environment factors", () => {
-        expect(getYieldForPlant(corn)).toBe(30);
+    const environmentFactors = {
+        sun: "low",
+    };
+
+    test("Get yield for plant with environment factor", () => {
+        expect(getYieldForPlant(corn, environmentFactors)).toBe(15);
     });
 });
 
@@ -137,3 +154,6 @@ describe("getTotalProfit", () => {
         expect(getTotalProfit({ crops })).toBe(160);
     });
 });
+
+
+

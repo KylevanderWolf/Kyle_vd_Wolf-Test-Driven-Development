@@ -1,23 +1,29 @@
 
-
-//Yield for Plant
-//Function 1
-let getYieldForPlant = (plantName) => {
-    return plantName.yield
+//Yield for Plant with environment factor
+//Question 6
+const getYieldForPlant = ({ yield: Yield, factors: { sun } }, envFactors) => {
+    if (envFactors.sun in sun) {
+        let sunFactor = (sun[envFactors.sun] / 100) + 1
+        let yieldForPlant = Yield * sunFactor
+        return yieldForPlant
+    }
+    else {
+        return Yield
+    }
 }
+
 
 //Yield for Crop
 //Function 2
-let getYieldForCrop = (input) => {
+const getYieldForCrop = (input) => {
     let plantYield = getYieldForPlant(input.crop)
     let yieldForCrop = plantYield * input.numCrops
     return yieldForCrop
 }
 
-
 //Yield Total
 //Function 3
-let getTotalYield = (crops) => {
+const getTotalYield = (crops) => {
     let totalYieldArray = []
     crops.crops.map(e => totalYieldArray.push(getYieldForCrop(e)))
     return totalYieldArray.reduce((a, b) => a + b)
@@ -25,28 +31,29 @@ let getTotalYield = (crops) => {
 
 //Question 1: Calculate the cost for a Crop
 //Cost for Crop
-let getCostsForCrop = (input) => {
+const getCostsForCrop = (input) => {
     return input.numCrops * input.cost
 }
 
 //Question 2: Calculate the revenue for Crop
-let getRevenueForCrop = (input) => {
+const getRevenueForCrop = (input) => {
     let revenue = getYieldForCrop(input) * input.salePrice
     return revenue
 }
 
 //Question 3: Calculate the profit for Crop
-let getProfitForCrop = (input) => {
+const getProfitForCrop = (input) => {
     let profitForCrop = getRevenueForCrop(input) - getCostsForCrop(input)
     return profitForCrop
 }
 
 //Question 4: Calculate the total profit for multiple Crops
-let getTotalProfit = (crops) => {
+const getTotalProfit = (crops) => {
     let cropsProfitArray = []
     crops.crops.map(e => cropsProfitArray.push(getRevenueForCrop(e) - getCostsForCrop(e)))
     return cropsProfitArray.reduce((a, b) => a + b)
 }
+
 
 
 module.exports = {
