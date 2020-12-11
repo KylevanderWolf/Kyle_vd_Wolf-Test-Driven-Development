@@ -454,7 +454,7 @@ describe("getCostsForCrop", () => {
 });
 
 
-//Revenue for Crop with environment facors
+//Revenue for Crop with environment factors
 describe("getRevenueForCrop", () => {
     test("Calculate revenue for crop with environment factors", () => {
         const corn = {
@@ -489,7 +489,7 @@ describe("getRevenueForCrop", () => {
     });
 });
 
-//Revenue for Crop with environment facors
+//Revenue for Crop with environment factors
 describe("getRevenueForCrop", () => {
     test("Calculate revenue for crop with irrelevant environment factors", () => {
         const corn = {
@@ -525,7 +525,7 @@ describe("getRevenueForCrop", () => {
 });
 
 
-//Revenue for Crop with environment facors
+//Revenue for Crop with environment factors
 describe("getRevenueForCrop", () => {
     test("Calculate revenue for crop with irrelevant environment factors", () => {
         const corn = {
@@ -556,11 +556,11 @@ describe("getRevenueForCrop", () => {
             cost: 1,
             salePrice: 2
         };
-        expect(getRevenueForCrop(input, environmentFactors)).toBe(30);
+        expect(getRevenueForCrop(input, environmentFactors)).toBe(36);
     });
 });
 
-//Revenue for Crop with environment facors
+//Revenue for Crop with environment factors
 describe("getRevenueForCrop", () => {
     test("Calculate revenue for crop with irrelevant environment factors", () => {
         const corn = {
@@ -596,7 +596,7 @@ describe("getRevenueForCrop", () => {
 });
 
 
-//Profit for Crop
+//Profit for Crop with environment factors
 //Question 3
 describe("getProfitForCrop", () => {
     test("Calculate profit for crop", () => {
