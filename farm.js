@@ -64,7 +64,7 @@ const getProfitForCrop = (input, envfactors) => {
 }
 
 
-//Question 4: Calculate the total profit for multiple Crops with environment Factors
+//Question 11: Calculate the total profit for multiple Crops with environment Factors
 const getTotalProfit = ({ crops }, envfactors) => {
     let cropsProfitArray = []
     crops.map(e => cropsProfitArray.push(getRevenueForCrop(e, envfactors) - getCostsForCrop(e, envfactors)))

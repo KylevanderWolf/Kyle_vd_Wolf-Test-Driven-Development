@@ -742,8 +742,8 @@ describe("getProfitForCrop", () => {
 });
 
 
-//Total profit for multiple Crops
-//Question 4
+//Total profit for multiple Crops with environment factors
+//Question 11
 describe("getTotalProfit", () => {
     test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
         const corn = {
@@ -794,8 +794,8 @@ describe("getTotalProfit", () => {
 
 
 
-//Total profit for multiple Crops
-//Question 4
+//Total profit for multiple Crops with environment factors
+//Question 11
 describe("getTotalProfit", () => {
     test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
         const corn = {
@@ -846,8 +846,8 @@ describe("getTotalProfit", () => {
 
 
 
-//Total profit for multiple Crops
-//Question 4
+//Total profit for multiple Crops with environment factors
+//Question 11
 describe("getTotalProfit", () => {
     test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
         const corn = {
@@ -898,8 +898,8 @@ describe("getTotalProfit", () => {
 
 
 
-//Total profit for multiple Crops
-//Question 4
+//Total profit for multiple Crops with environment factors
+//Question 11
 describe("getTotalProfit", () => {
     test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
         const corn = {
