@@ -1,5 +1,3 @@
-
-
 //Yield for Plant with environment factors
 //Ignore irrelevant environment factors
 //Question 6 && Question 7 && Question 8
