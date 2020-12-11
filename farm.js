@@ -63,13 +63,13 @@ const getProfitForCrop = (input, envfactors) => {
     return profitForCrop
 }
 
-//Question 4: Calculate the total profit for multiple Crops
-const getTotalProfit = (crops) => {
+
+//Question 4: Calculate the total profit for multiple Crops with environment Factors
+const getTotalProfit = ({ crops }, envfactors) => {
     let cropsProfitArray = []
-    crops.crops.map(e => cropsProfitArray.push(getRevenueForCrop(e) - getCostsForCrop(e)))
+    crops.map(e => cropsProfitArray.push(getRevenueForCrop(e, envfactors) - getCostsForCrop(e, envfactors)))
     return cropsProfitArray.reduce((a, b) => a + b)
 }
-
 
 
 module.exports = {

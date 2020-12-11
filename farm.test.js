@@ -745,22 +745,206 @@ describe("getProfitForCrop", () => {
 //Total profit for multiple Crops
 //Question 4
 describe("getTotalProfit", () => {
-    test("Calculate total profit for multiple crops", () => {
+    test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
         const corn = {
             name: "corn",
             yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
         const pumpkin = {
             name: "pumpkin",
             yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "high",
+        };
+
         const crops = [
             { crop: corn, numCrops: 10, cost: 1, salePrice: 2 },
             { crop: pumpkin, numCrops: 10, cost: 1, salePrice: 3 },
         ];
-        expect(getTotalProfit({ crops })).toBe(160);
+        expect(getTotalProfit({ crops }, environmentFactors)).toBe(34);
     });
 });
 
 
+
+//Total profit for multiple Crops
+//Question 4
+describe("getTotalProfit", () => {
+    test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "undefined",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 10, cost: 1, salePrice: 2 },
+            { crop: pumpkin, numCrops: 10, cost: 1, salePrice: 3 },
+        ];
+        expect(getTotalProfit({ crops }, environmentFactors)).toBe(70);
+    });
+});
+
+
+
+//Total profit for multiple Crops
+//Question 4
+describe("getTotalProfit", () => {
+    test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "high",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 10, cost: 1, salePrice: 2 },
+            { crop: pumpkin, numCrops: 10, cost: 1, salePrice: 3 },
+        ];
+        expect(getTotalProfit({ crops }, environmentFactors)).toBe(88);
+    });
+});
+
+
+
+//Total profit for multiple Crops
+//Question 4
+describe("getTotalProfit", () => {
+    test("Calculate total profit for multiple crops with (ir)relevant invironment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "undefined",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 10, cost: 1, salePrice: 2 },
+            { crop: pumpkin, numCrops: 10, cost: 1, salePrice: 3 },
+        ];
+        expect(getTotalProfit({ crops }, environmentFactors)).toBe(160);
+    });
+});
 
