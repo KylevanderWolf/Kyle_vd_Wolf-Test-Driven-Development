@@ -46,8 +46,8 @@ const getTotalYield = ({ crops }, envFactors) => {
 
 //Question 1: Calculate the cost for a Crop
 //Cost for Crop
-const getCostsForCrop = (input) => {
-    return input.numCrops * input.cost
+const getCostsForCrop = ({ numCrops, cost }) => {
+    return numCrops * cost
 }
 
 //Question 2: Calculate the revenue for Crop
