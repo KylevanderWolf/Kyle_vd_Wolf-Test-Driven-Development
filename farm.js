@@ -56,9 +56,10 @@ const getRevenueForCrop = (input, envfactors) => {
     return revenue
 }
 
-//Question 3: Calculate the profit for Crop
+//Question 10:
+//Calculate the profit for Crop with environment factors
 const getProfitForCrop = (input, envfactors) => {
-    let profitForCrop = getRevenueForCrop(input) - getCostsForCrop(input)
+    let profitForCrop = getRevenueForCrop(input, envfactors) - getCostsForCrop(input)
     return profitForCrop
 }
 

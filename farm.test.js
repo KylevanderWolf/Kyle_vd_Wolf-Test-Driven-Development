@@ -597,20 +597,147 @@ describe("getRevenueForCrop", () => {
 
 
 //Profit for Crop with environment factors
-//Question 3
+//Question 10
 describe("getProfitForCrop", () => {
-    test("Calculate profit for crop", () => {
+    test("Calculate profit for crop with environment factors", () => {
         const corn = {
             name: "corn",
             yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "high",
+        };
+
         const input = {
             crop: corn,
             numCrops: 10,
             cost: 1,
             salePrice: 2
         };
-        expect(getProfitForCrop(input)).toBe(50);
+        expect(getProfitForCrop(input, environmentFactors)).toBe(8);
+    });
+});
+
+//Profit for Crop with environment factors
+//Question 10
+describe("getProfitForCrop", () => {
+    test("Calculate profit for crop with irrelevant invironment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "undefined",
+        };
+
+        const input = {
+            crop: corn,
+            numCrops: 10,
+            cost: 1,
+            salePrice: 2
+        };
+        expect(getProfitForCrop(input, environmentFactors)).toBe(20);
+    });
+});
+
+
+//Profit for Crop with environment factors
+//Question 10
+describe("getProfitForCrop", () => {
+    test("Calculate profit for crop with irrelevant invironment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "high",
+        };
+
+        const input = {
+            crop: corn,
+            numCrops: 10,
+            cost: 1,
+            salePrice: 2
+        };
+        expect(getProfitForCrop(input, environmentFactors)).toBe(26);
+    });
+});
+
+//Profit for Crop with environment factors
+//Question 10
+describe("getProfitForCrop", () => {
+    test("Calculate profit for crop with irrelevant invironment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "undefined",
+        };
+
+        const input = {
+            crop: corn,
+            numCrops: 10,
+            cost: 1,
+            salePrice: 2
+        };
+        expect(getProfitForCrop(input, environmentFactors)).toBe(50);
     });
 });
 
