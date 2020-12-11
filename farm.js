@@ -1,7 +1,7 @@
 
 
 //Yield for Plant with environment factors
-//Ignore not relevant environment factors
+//Ignore irrelevant environment factors
 //Question 6 && Question 7 && Question 8
 const getYieldForPlant = ({ yield: yieldKg, factors: { sun, wind } }, envFactors) => {
     let sunFactor = (sun[envFactors.sun] / 100) + 1
@@ -27,8 +27,7 @@ const getYieldForPlant = ({ yield: yieldKg, factors: { sun, wind } }, envFactors
 }
 
 
-//Yield for Crop
-//Function 2
+//Yield for Crop with environment factors
 //Question 9
 const getYieldForCrop = ({ crop, numCrops }, envFactors) => {
     let baseYield = getYieldForPlant(crop, envFactors)
@@ -37,13 +36,13 @@ const getYieldForCrop = ({ crop, numCrops }, envFactors) => {
 }
 
 
-//Yield Total
-//Function 3
-const getTotalYield = (crops) => {
-    let totalYieldArray = []
-    crops.crops.map(e => totalYieldArray.push(getYieldForCrop(e)))
-    return totalYieldArray.reduce((a, b) => a + b)
+//Yield Total with environment factors
+const getTotalYield = ({ crops }, envFactors) => {
+    let YieldArray = []
+    crops.map(e => YieldArray.push(getYieldForCrop(e, envFactors)))
+    return YieldArray.reduce((a, b) => a + b)
 }
+
 
 //Question 1: Calculate the cost for a Crop
 //Cost for Crop

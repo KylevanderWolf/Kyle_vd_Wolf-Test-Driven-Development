@@ -137,7 +137,7 @@ describe("getYieldForCrop", () => {
     test("Get yield for crop, with environment factors", () => {
         const corn = {
             name: "corn",
-            yield: 30,
+            yield: 3,
             factors: {
                 sun: {
                     low: -50,
@@ -160,7 +160,7 @@ describe("getYieldForCrop", () => {
             crop: corn,
             numCrops: 10,
         };
-        expect(getYieldForCrop(input, environmentFactors)).toBe(90);
+        expect(getYieldForCrop(input, environmentFactors)).toBe(9);
     });
 });
 
@@ -170,7 +170,7 @@ describe("getYieldForCrop", () => {
     test("Get yield for crop, ignore 1 irrelevant environment factor", () => {
         const corn = {
             name: "corn",
-            yield: 30,
+            yield: 3,
             factors: {
                 sun: {
                     low: -50,
@@ -193,7 +193,7 @@ describe("getYieldForCrop", () => {
             crop: corn,
             numCrops: 10,
         };
-        expect(getYieldForCrop(input, environmentFactors)).toBe(150);
+        expect(getYieldForCrop(input, environmentFactors)).toBe(15);
     });
 });
 
@@ -203,7 +203,7 @@ describe("getYieldForCrop", () => {
     test("Get yield for crop, ignore irrelevant environment factors", () => {
         const corn = {
             name: "corn",
-            yield: 30,
+            yield: 3,
             factors: {
                 sun: {
                     low: -50,
@@ -226,36 +226,212 @@ describe("getYieldForCrop", () => {
             crop: corn,
             numCrops: 10,
         };
-        expect(getYieldForCrop(input, environmentFactors)).toBe(300);
+        expect(getYieldForCrop(input, environmentFactors)).toBe(30);
     });
 });
 
 
 
-//Total Yield
+//Total Yield with environment factors
 describe("getTotalYield", () => {
-    test("Calculate total yield with multiple crops", () => {
+    test("Calculate total yield with multiple crops && environment factors", () => {
         const corn = {
             name: "corn",
             yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
         const pumpkin = {
             name: "pumpkin",
             yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "high",
+        };
+
         const crops = [
             { crop: corn, numCrops: 5 },
             { crop: pumpkin, numCrops: 2 },
         ];
-        expect(getTotalYield({ crops })).toBe(23);
+        expect(getTotalYield({ crops }, environmentFactors)).toBe(6.9);
     });
-    test("Calculate total yield with 0 amount", () => {
+});
+
+
+
+//Total Yield with environment factors
+//ignore irrelevant environment factors
+describe("getTotalYield", () => {
+    test("Calculate total yield with multiple crops && ignore irrelevant environment factors", () => {
         const corn = {
             name: "corn",
             yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
-        const crops = [{ crop: corn, numCrops: 0 }];
-        expect(getTotalYield({ crops })).toBe(0);
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "high",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 5 },
+            { crop: pumpkin, numCrops: 2 },
+        ];
+        expect(getTotalYield({ crops }, environmentFactors)).toBe(13.8);
+    });
+});
+
+
+
+//Total Yield with environment factors
+//ignore irrelevant environment factors
+describe("getTotalYield", () => {
+    test("Calculate total yield with multiple crops && ignore irrelevant environment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "undefined",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 5 },
+            { crop: pumpkin, numCrops: 2 },
+        ];
+        expect(getTotalYield({ crops }, environmentFactors)).toBe(11.5);
+    });
+});
+
+//Total Yield with environment factors
+//ignore irrelevant environment factors
+describe("getTotalYield", () => {
+    test("Calculate total yield with multiple crops && ignore irrelevant environment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "undefined",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 5 },
+            { crop: pumpkin, numCrops: 2 },
+        ];
+        expect(getTotalYield({ crops }, environmentFactors)).toBe(23);
     });
 });
 
