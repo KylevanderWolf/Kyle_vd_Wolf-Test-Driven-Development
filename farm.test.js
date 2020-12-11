@@ -102,7 +102,7 @@ describe("getYieldForPlant", () => {
 });
 
 //Yield for plant with environment factors
-//Ignore not relevant environment factors
+//Ignore all irrelevant environment factors
 describe("getYieldForPlant", () => {
     const corn = {
         name: "corn",
@@ -132,20 +132,104 @@ describe("getYieldForPlant", () => {
 });
 
 
-//Yield for crop
+//Yield for crop with environment factors
 describe("getYieldForCrop", () => {
-    test("Get yield for crop, simple", () => {
+    test("Get yield for crop, with environment factors", () => {
         const corn = {
             name: "corn",
-            yield: 3,
+            yield: 30,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "high",
         };
         const input = {
             crop: corn,
             numCrops: 10,
         };
-        expect(getYieldForCrop(input)).toBe(30);
+        expect(getYieldForCrop(input, environmentFactors)).toBe(90);
     });
 });
+
+//Yield for crop with environment factors
+//Ignore 1 irrelevant environment factor
+describe("getYieldForCrop", () => {
+    test("Get yield for crop, ignore 1 irrelevant environment factor", () => {
+        const corn = {
+            name: "corn",
+            yield: 30,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "undefined",
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+        };
+        expect(getYieldForCrop(input, environmentFactors)).toBe(150);
+    });
+});
+
+//Yield for crop with environment factors
+//Ignore irrelevant environment factors
+describe("getYieldForCrop", () => {
+    test("Get yield for crop, ignore irrelevant environment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 30,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "undefined",
+            wind: "undefined",
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+        };
+        expect(getYieldForCrop(input, environmentFactors)).toBe(300);
+    });
+});
+
 
 
 //Total Yield

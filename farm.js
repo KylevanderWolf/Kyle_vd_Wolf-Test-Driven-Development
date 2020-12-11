@@ -3,38 +3,39 @@
 //Yield for Plant with environment factors
 //Ignore not relevant environment factors
 //Question 6 && Question 7 && Question 8
-const getYieldForPlant = ({ yield: totalYield, factors: { sun, wind } }, envFactors) => {
+const getYieldForPlant = ({ yield: yieldKg, factors: { sun, wind } }, envFactors) => {
     let sunFactor = (sun[envFactors.sun] / 100) + 1
     let windFactor = (wind[envFactors.wind] / 100) + 1
     if (envFactors.sun in sun && envFactors.wind in wind) {
-        let yieldForPlant = (totalYield * (sunFactor * windFactor)).toFixed(2)
-        let yieldRounded = parseFloat(yieldForPlant)
-        return yieldRounded
+        let yieldForPlant = (yieldKg * (sunFactor * windFactor)).toFixed(2)
+        let yieldForPlantKg = parseFloat(yieldForPlant)
+        return yieldForPlantKg
     }
     else if (!(envFactors.sun in sun) && envFactors.wind in wind) {
-        let yieldForPlant = (totalYield * windFactor).toFixed(2)
-        let yieldRounded = parseFloat(yieldForPlant)
-        return yieldRounded
+        let yieldForPlant = (yieldKg * windFactor).toFixed(2)
+        let yieldForPlantKg = parseFloat(yieldForPlant)
+        return yieldForPlantKg
     }
     else if (envFactors.sun in sun && !(envFactors.wind in wind)) {
-        let yieldForPlant = (totalYield * sunFactor).toFixed(2)
-        let yieldRounded = parseFloat(yieldForPlant)
-
-        return yieldRounded
+        let yieldForPlant = (yieldKg * sunFactor).toFixed(2)
+        let yieldForPlantKg = parseFloat(yieldForPlant)
+        return yieldForPlantKg
     }
     else {
-        return totalYield
+        return yieldKg
     }
 }
 
 
 //Yield for Crop
 //Function 2
-const getYieldForCrop = (input) => {
-    let plantYield = getYieldForPlant(input.crop)
-    let yieldForCrop = plantYield * input.numCrops
-    return yieldForCrop
+//Question 9
+const getYieldForCrop = ({ crop, numCrops }, envFactors) => {
+    let baseYield = getYieldForPlant(crop, envFactors)
+    let yieldforCrop = baseYield * numCrops
+    return yieldforCrop
 }
+
 
 //Yield Total
 //Function 3
