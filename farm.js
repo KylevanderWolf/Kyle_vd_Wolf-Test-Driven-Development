@@ -51,8 +51,8 @@ const getCostsForCrop = ({ numCrops, cost }) => {
 }
 
 //Question 2: Calculate the revenue for Crop
-const getRevenueForCrop = (input) => {
-    let revenue = getYieldForCrop(input) * input.salePrice
+const getRevenueForCrop = (input, envfactors) => {
+    let revenue = getYieldForCrop(input, envfactors) * input.salePrice
     return revenue
 }
 

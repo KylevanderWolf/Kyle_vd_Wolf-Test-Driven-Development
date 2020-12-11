@@ -455,21 +455,39 @@ describe("getCostsForCrop", () => {
 });
 
 
-//Revenue for Crop
+//Revenue for Crop with environment facors
 //Question 2
 describe("getRevenueForCrop", () => {
-    test("Calculate revenue for crop", () => {
+    test("Calculate revenue for crop with environment factors", () => {
         const corn = {
             name: "corn",
             yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
         };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "high",
+        };
+
         const input = {
             crop: corn,
             numCrops: 10,
             cost: 1,
             salePrice: 2
         };
-        expect(getRevenueForCrop(input)).toBe(60);
+        expect(getRevenueForCrop(input, environmentFactors)).toBe(18);
     });
 });
 
