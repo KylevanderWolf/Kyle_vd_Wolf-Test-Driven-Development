@@ -69,7 +69,6 @@ const getTotalProfit = ({ crops }, envfactors) => {
     return cropsProfitArray.reduce((a, b) => a + b)
 }
 
-
 module.exports = {
     getYieldForPlant,
     getYieldForCrop,

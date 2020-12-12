@@ -10,7 +10,6 @@ const { getRevenueForCrop } = require("./farm.js");
 //PROFIT
 const { getProfitForCrop, getTotalProfit } = require("./farm.js");
 
-
 //Yield for plant with mulitple environment factors
 describe("getYieldForPlant", () => {
     const corn = {
@@ -998,4 +997,4 @@ describe("getTotalProfit", () => {
 });
 
 
-//Testing complete, ready for production!
+//Testing complete!
