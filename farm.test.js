@@ -436,6 +436,55 @@ describe("getTotalYield", () => {
 });
 
 
+//Total Yield with 0 amount crops
+describe("getTotalYield", () => {
+    test("Calculate total yield with 0 amount", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: -20,
+                    medium: 0,
+                    high: -40,
+                },
+            },
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "high",
+        };
+
+        const crops = [
+            { crop: corn, numCrops: 0 },
+            { crop: pumpkin, numCrops: 0 },
+        ];
+        expect(getTotalYield({ crops }, environmentFactors)).toBe(0);
+    });
+});
+
 
 //Cost for Crop
 describe("getCostsForCrop", () => {
